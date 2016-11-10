@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <group name="dubbo">
+        <property name="app.name" description="应用名称" defaultValue="ttmoney" />
+        <property name="app.owner" description="应用的所有者、维护者" defaultValue="xxx" />
+    	<property name="dubbo.provider.threads" description="DUBBO服务的线程池" defaultValue="200"/>
+        <property name="dubbo.registry.address" description="注册中心地址" defaultValue="multicast://224.5.6.7:1234" /> 
+        <property name="dubbo.version" description="CIF接口版本" defaultValue="1.0.0" />
+        <property name="dubbo.timeout" description="CIF接口网络超时时间" defaultValue="15000" />
+        
+        <property name="dubbo.protocol.name" description="CIF使用协议名称" defaultValue="dubbo" />
+        <property name="dubbo.protocol.host" description="CIF使用协议HOST" defaultValue="127.0.0.1" />
+        <property name="dubbo.protocol.port" description="CIF使用协议端口" defaultValue="20880" />
+        <property name="dubbo.service.executes" description="CIF服务线程执行数" defaultValue="10" />
+        <property name="dubbo.enable.accesslog" description="是否启动调用日志" defaultValue="true"/>
+        <property name="netno" description="联泰操作网点" defaultValue="310"/>
+    	<property name="apporder.cron" description="申购订单处理" defaultValue="0 0 22 * * ?"/>
+    	<property name="redeemorder.cron" description="赎回订单处理" defaultValue="0 0 21 * * ?"/>
+    </group>
+    <script>
+        <generate template="/biz.properties.vm"  destfile="/biz.properties" charset="UTF-8" />
+    </script>
+</config>

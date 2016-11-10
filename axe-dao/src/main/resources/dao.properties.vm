@@ -1,0 +1,17 @@
+datasource.driver    = ${datasource.driver}
+datasource.password  = ${datasource.password}
+datasource.url       = ${datasource.url}
+datasource.username  = ${datasource.username}
+datasource.testOnBorrow  = ${datasource.testOnBorrow}
+datasource.testWhileIdle = ${datasource.testWhileIdle}
+datasource.testOnReturn = ${datasource.testOnReturn}
+datasource.initialSize   = ${datasource.initialSize}
+datasource.maxActive     = ${datasource.maxActive}
+datasource.maxIdle       = ${datasource.maxIdle}
+datasource.minIdle       = ${datasource.minIdle}
+datasource.maxWait		 = ${datasource.maxWait}
+datasource.removeAbandoned = ${datasource.removeAbandoned}
+datasource.removeAbandonedTimeout   = ${datasource.removeAbandonedTimeout}
+datasource.timeBetweenEvictionRunsMillis = ${datasource.timeBetweenEvictionRunsMillis}
+datasource.validationQueryTimeout = ${datasource.validationQueryTimeout}
+datasource.validationQuery=${datasource.validationQuery}

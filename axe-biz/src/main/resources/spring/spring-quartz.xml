@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="  
+            http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context.xsd
+			">
+
+    <!-- 收益计算定时器 -->
+    <bean id="spniperJob" class="com.uusoft.sniper.job.SpniperJob"/>
+    
+    <!-- 定义调用对象和调用对象的方法-->
+    <bean id="spniperTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="spniperJob" />
+        <property name="targetMethod" value="work" />
+        <property name="concurrent" value="false" />
+    </bean>
+    <!-- 定义触发时间-->
+    <bean id="spniperJobTime" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="spniperTask" />
+        <property name="cronExpression" value="${schedule.cron}" />
+    </bean>
+    
+    <!-- 申购订单处理 -->
+    <!-- 定义调用对象和调用对象的方法-->
+    <bean id="redeem2AppAppOrderTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="redeem2AppAppOrderJob" />
+        <property name="targetMethod" value="work" />
+        <property name="concurrent" value="false" />
+    </bean>
+    <!-- 定义触发时间-->
+    <bean id="redeem2AppAppOrderTime" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="redeem2AppAppOrderTask" />
+        <property name="cronExpression" value="${apporder.cron}" />
+    </bean>
+    
+    <!-- 赎回订单处理 -->
+    <!-- 定义调用对象和调用对象的方法-->
+    <bean id="redeem2AppRedeemOrderTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="redeem2AppRedeemOrderJob" />
+        <property name="targetMethod" value="work" />
+        <property name="concurrent" value="false" />
+    </bean>
+    <!-- 定义触发时间-->
+    <bean id="redeem2AppRedeemOrderTime" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="redeem2AppRedeemOrderTask" />
+        <property name="cronExpression" value="${redeemorder.cron}" />
+    </bean>
+
+	<!--总管理类  -->
+	<bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+                <ref bean="spniperJobTime" />
+                <ref bean="redeem2AppAppOrderTime" />
+                <ref bean="redeem2AppRedeemOrderTime" />
+			</list>
+		</property>
+		<property name="autoStartup" value="true" />
+	</bean>
+</beans>

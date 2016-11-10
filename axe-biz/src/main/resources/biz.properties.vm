@@ -1,0 +1,20 @@
+app.name = ${app.name}
+app.owner= ${app.owner}
+
+dubbo.protocol.name     = ${dubbo.protocol.name}
+dubbo.protocol.host     = ${dubbo.protocol.host}
+dubbo.protocol.port     = ${dubbo.protocol.port}
+dubbo.provider.threads  = ${dubbo.provider.threads}
+dubbo.registry.address  = ${dubbo.registry.address}
+dubbo.service.executes  = ${dubbo.service.executes}
+dubbo.timeout           = ${dubbo.timeout}
+dubbo.version           = ${dubbo.version}
+
+schedule.cron = ${schedule.cron}
+redeemorder.cron=${redeemorder.cron}
+redeemorder.cron=${apporder.cron}
+bank_center_url=${bank_center_url}
+
+channelid=${channelid}
+
+netno={netno}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<group name="db">
+		<property name="datasource.driver" defaultValue="com.mysql.jdbc.Driver"
+			description="JDBC驱动类" />
+		<property name="datasource.url" defaultValue="jdbc:mysql://127.0.0.1:3306/cif"
+			description="数据库连接URL" />
+		<property name="datasource.username" defaultValue="cifuser"
+			description="数据库用户名" />
+		<property name="datasource.password" defaultValue="cifP@ssw0rd"
+			description="数据库密码" />
+		<property name="datasource.testOnBorrow" defaultValue="false"
+			description="借用的时候测试" />
+		<property name="datasource.testWhileIdle" defaultValue="true"
+			description="空闲的时候测试" />
+		<property name="datasource.testOnReturn" defaultValue="false"
+			description="归还时候测试" />
+		<property name="datasource.initialSize" defaultValue="1"
+			description="初始大小" />
+		<property name="datasource.maxActive" defaultValue="10"
+			description="最大激活大小" />
+		<property name="datasource.maxIdle" defaultValue="10"
+			description="最大空闲数" />
+		<property name="datasource.minIdle" defaultValue="5"
+			description="最小空闲数" />
+		<property name="datasource.maxWait" defaultValue="60000"
+			description="最长等待时间" />
+		<property name="datasource.removeAbandoned" defaultValue="true"
+			description="是否回收超时连接" />
+		<property name="datasource.removeAbandonedTimeout" defaultValue="180"
+			description="自动回收超时时间（s）" />
+		<property name="datasource.timeBetweenEvictionRunsMillis" defaultValue="30000"
+			description="Evict线程的时间（ms）" />
+		<property name="datasource.validationQueryTimeout" defaultValue="1"
+			description="执行检查时超时时间" />
+		<property name="datasource.validationQuery" defaultValue="select 1"
+			description="验证数据库连接查询" />
+	</group>
+
+	<script>
+		<generate template="/dao.properties.vm"  destfile="/dao.properties" charset="UTF-8" />
+	</script>
+</config>

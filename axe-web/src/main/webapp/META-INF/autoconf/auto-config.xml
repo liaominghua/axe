@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<group name="log">
+		<property name="logger.path" description="日志路径" defaultValue="."/>
+    	<property name="logger.level" description="logback的日志级别" defaultValue="INFO"/>
+	</group>
+
+	<script>
+        <generate template="WEB-INF/classes/log4j.xml.vm"  destfile="WEB-INF/classes/log4j.xml" charset="UTF-8" />
+    </script>
+</config>
